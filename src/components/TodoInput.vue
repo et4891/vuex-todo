@@ -1,8 +1,8 @@
 <template>
   <div class="ui right labeled left icon input fluid">
     <i class="tags icon"></i>
-    <input type="text" placeholder="Enter item" />
-    <a class="ui tag label button green">
+    <input type="text" placeholder="Enter item" @input="onInput" />
+    <a class="ui tag label button green" @click="onAdd">
       Add Item
     </a>
     <div class="ui left labeled button" tabindex="0">
@@ -18,7 +18,20 @@
 
 <script>
 export default {
-  name: "TodoInput"
+  name: "TodoInput",
+  data() {
+    return {
+      inputText: null
+    };
+  },
+  methods: {
+    onInput(e) {
+      this.inputText = e.target.value;
+    },
+    onAdd() {
+      console.log(this.inputText);
+    }
+  }
 };
 </script>
 
