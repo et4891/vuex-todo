@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div v-if="todoList.length > 0">
+    <div v-if="itemList.length > 0">
       <TodoListItem
         :todo="todo"
-        v-for="(todo, index) in todoList"
+        v-for="(todo, index) in itemList"
         :key="index"
       />
     </div>
@@ -20,10 +20,10 @@ export default {
   components: {
     TodoListItem
   },
-  computed: mapGetters(["todoList"]),
-  methods: mapActions(["fetchTodos"]),
+  computed: mapGetters(["itemList"]),
+  methods: mapActions(["fetchItems"]),
   created() {
-    this.fetchTodos();
+    this.fetchItems();
   }
 };
 </script>

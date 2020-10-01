@@ -1,16 +1,16 @@
 import api from "../../api/todo";
 
 const state = {
-  todos: []
+  items: []
 };
 
 const getters = {
-  todoList: ({ todos }) => todos
+  itemList: ({ items }) => items
 };
 
 const actions = {
   // get list of todos
-  fetchTodos: async ({ commit }) => {
+  fetchItems: async ({ commit }) => {
     try {
       const response = await api.fetchTodos();
       commit("setTodos", response.data.data);
@@ -27,7 +27,7 @@ const actions = {
 const mutations = {
   // add todos
   setTodos: (state, todos) => {
-    state.todos = todos;
+    state.items = todos;
   }
   // modify todos
   // delete todos
