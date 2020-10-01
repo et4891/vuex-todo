@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <nav>
     <div class="ui secondary pointing menu">
       <a href="/" class="active item">
         Vuex Todo
@@ -10,7 +10,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </nav>
 </template>
 
 <script>
@@ -20,6 +20,10 @@ export default {
 </script>
 
 <style scoped>
+nav {
+  margin-bottom: 20px;
+}
+
 .horizontal {
   display: flex;
   flex-direction: row;

@@ -1,12 +1,14 @@
 <template>
   <div>
-    <div v-if="itemList.length > 0">
-      <TodoListItem
-        :todo="todo"
-        v-for="(todo, index) in itemList"
-        :key="index"
-      />
-    </div>
+    <table class="ui striped table celled" v-if="itemList.length > 0">
+      <tbody>
+        <TodoListItem
+          :todo="todo"
+          v-for="(todo, index) in itemList"
+          :key="index"
+        />
+      </tbody>
+    </table>
     <div v-else>Please add a todo item</div>
   </div>
 </template>
@@ -28,4 +30,5 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>
