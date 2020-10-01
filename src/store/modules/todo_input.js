@@ -1,9 +1,9 @@
 const state = {
-  inputText: null
+  item: null
 };
 
 const getters = {
-  getInputText: ({ inputText }) => inputText
+  getInputText: ({ item }) => item
 };
 
 const actions = {
@@ -13,8 +13,8 @@ const actions = {
 };
 
 const mutations = {
-  setInputText: (state, inputText) => {
-    state.inputText = inputText;
+  setInputText: (state, item) => {
+    state.item = item;
   }
 };
 
