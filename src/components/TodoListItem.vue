@@ -6,11 +6,15 @@
     <td>
       <label>{{ todo.item }}</label>
     </td>
-    <td class="selectable right aligned one wide column">
-      <button class="ui violet basic button mini">Edit</button>
+    <td class="selectable center aligned one wide column">
+      <div class="ui icon button violet inverted">
+        <i class="edit outline icon"></i>
+      </div>
     </td>
-    <td class="selectable right aligned one wide column">
-      <button class="ui red basic button mini">X</button>
+    <td class="selectable center aligned one wide column">
+      <div class="ui icon button red inverted">
+        <i class="trash alternate outline icon"></i>
+      </div>
     </td>
   </tr>
 </template>
