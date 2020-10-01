@@ -17,6 +17,13 @@ const actions = {
     } catch (e) {
       console.log(e, "error in fetchTodos in actions");
     }
+  },
+  addItem({ commit, rootState }) {
+    console.log(rootState, "rootState");
+    console.log(commit, "commit");
+    // call axios to add
+    // get the return values
+    // get the items in state, then either push into the array then commit to setTodos mutation
   }
   // add todos
   // modify todos

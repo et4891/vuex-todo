@@ -2,7 +2,7 @@
   <div class="ui right labeled left icon input fluid">
     <i class="tags icon"></i>
     <input type="text" placeholder="Enter item" @input="onInput" />
-    <a class="ui tag label button green" @click="onAdd">
+    <a class="ui tag label button green" @click="addItem">
       Add Item
     </a>
     <div class="ui left labeled button" tabindex="0">
@@ -17,21 +17,12 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "TodoInput",
-  data() {
-    return {
-      inputText: null
-    };
-  },
-  methods: {
-    onInput(e) {
-      this.inputText = e.target.value;
-    },
-    onAdd() {
-      console.log(this.inputText);
-    }
-  }
+  computed: mapGetters(["getInputText"]),
+  methods: mapActions(["onInput", "addItem"])
 };
 </script>
 
