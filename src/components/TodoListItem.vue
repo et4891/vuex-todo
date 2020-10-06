@@ -1,7 +1,11 @@
 <template>
   <tr>
     <td class="selectable center aligned one wide column">
-      <input type="checkbox" class="complete-checkbox" :name="'item-' + todo._id" />
+      <input
+        type="checkbox"
+        class="complete-checkbox"
+        :name="'item-' + todo._id"
+      />
     </td>
     <td>
       <label>{{ todo.item }}</label>
