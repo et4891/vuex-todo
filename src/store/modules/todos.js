@@ -26,6 +26,7 @@ const actions = {
       const response = await api.create(item);
       const newTodoList = [...rootState.todos.items, response.data.data];
       commit("setTodos", newTodoList);
+      commit("setInputText", null, { root: true }); // this calls mutation from todo_input module
     } catch (e) {
       console.log(e, "error in add item in actions");
     }

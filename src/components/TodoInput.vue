@@ -1,7 +1,12 @@
 <template>
   <div class="ui right labeled left icon input fluid">
     <i class="tags icon"></i>
-    <input type="text" placeholder="Enter item" @input="onInput" />
+    <input
+      type="text"
+      placeholder="Enter item"
+      @input="onInput"
+      :value="getInputText"
+    />
     <a class="ui tag label button green" @click="addItem">
       Add Item
     </a>
