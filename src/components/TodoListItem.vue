@@ -2,13 +2,15 @@
   <tr>
     <td class="selectable center aligned one wide column">
       <input
+        @click="isCompleted(todo)"
         type="checkbox"
         class="complete-checkbox"
         :name="'item-' + todo._id"
+        :checked="todo.completed"
       />
     </td>
     <td>
-      <label>{{ todo.item }}</label>
+      <label :class="{ completed: todo.completed }">{{ todo.item }}</label>
     </td>
     <td class="selectable center aligned one wide column">
       <div class="ui icon button violet inverted">
@@ -24,9 +26,12 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "TodoListItem",
-  props: ["todo"]
+  props: ["todo"],
+  methods: mapActions(["isCompleted"])
 };
 </script>
 
@@ -37,5 +42,9 @@ export default {
 
 .complete-checkbox {
   transform: scale(2);
+}
+
+.completed {
+  text-decoration: line-through;
 }
 </style>

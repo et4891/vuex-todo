@@ -33,6 +33,10 @@ const actions = {
     // call axios to add
     // get the return values
     // get the items in state, then either push into the array then commit to setTodos mutation
+  },
+  isCompleted: async (context, todo) => {
+    todo.completed = !todo.completed;
+    await api.isCompleted(todo);
   }
   // add todos
   // modify todos

@@ -5,7 +5,6 @@ export default {
   fetch: () => {
     return axios.get(BASE_URL);
   },
-  create: item => {
-    return axios.post(BASE_URL, { item });
-  }
+  create: item => axios.post(BASE_URL, { item }),
+  isCompleted: todo => axios.patch(`${BASE_URL}/completed`, todo)
 };
