@@ -18,7 +18,7 @@
       </div>
     </td>
     <td class="selectable center aligned one wide column">
-      <div class="ui icon button red inverted">
+      <div @click="remove(todo._id)" class="ui icon button red inverted">
         <i class="trash alternate outline icon"></i>
       </div>
     </td>
@@ -31,7 +31,7 @@ import { mapActions } from "vuex";
 export default {
   name: "TodoListItem",
   props: ["todo"],
-  methods: mapActions(["isCompleted"])
+  methods: mapActions(["isCompleted", "remove"])
 };
 </script>
 

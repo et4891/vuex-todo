@@ -37,6 +37,12 @@ const actions = {
   isCompleted: async (context, todo) => {
     todo.completed = !todo.completed;
     await api.isCompleted(todo);
+  },
+  remove: async ({ commit }, _id) => {
+    const response = await api.remove(_id);
+    if (response.data.status) {
+      commit("remoteTodo", _id);
+    }
   }
   // add todos
   // modify todos
@@ -48,6 +54,9 @@ const mutations = {
   // add todos
   setTodos: (state, todos) => {
     state.items = todos;
+  },
+  remoteTodo: (state, _id) => {
+    state.items = state.items.filter(item => item._id !== _id);
   }
   // modify todos
   // delete todos
