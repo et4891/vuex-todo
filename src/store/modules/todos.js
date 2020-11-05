@@ -1,11 +1,13 @@
 import api from "../../api/todo";
 
 const state = {
-  items: []
+  items: [],
+  editableId: null
 };
 
 const getters = {
-  itemList: ({ items }) => items
+  itemList: ({ items }) => items,
+  getEditableId: ({ editableId }) => editableId
 };
 
 const actions = {
@@ -43,11 +45,10 @@ const actions = {
     if (response.data.status) {
       commit("remoteTodo", _id);
     }
+  },
+  setEditableId: ({ commit }, _id) => {
+    commit("setEditableId", _id);
   }
-  // add todos
-  // modify todos
-  // delete todos
-  // mark todos as complete
 };
 
 const mutations = {
@@ -57,10 +58,10 @@ const mutations = {
   },
   remoteTodo: (state, _id) => {
     state.items = state.items.filter(item => item._id !== _id);
+  },
+  setEditableId: (state, _id) => {
+    state.editableId = _id;
   }
-  // modify todos
-  // delete todos
-  // mark todos as complete
 };
 
 export default {
