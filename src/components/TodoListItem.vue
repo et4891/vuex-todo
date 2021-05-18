@@ -10,15 +10,36 @@
       />
     </td>
     <td>
-      <label :class="{ completed: todo.completed }">{{ todo.item }}</label>
+      <div
+        class="ui labeled icon input fluid"
+        v-if="getEditableId === todo._id"
+      >
+        <input type="text" :value="todo.item" />
+      </div>
+      <label v-else :class="{ completed: todo.completed }">{{
+        todo.item
+      }}</label>
     </td>
     <td class="selectable center aligned one wide column">
-      <div class="ui icon button violet inverted">
+      <div
+        v-if="getEditableId === todo._id"
+        class="ui icon button green inverted"
+      >
+        <i class="save icon"></i>
+      </div>
+      <div
+        v-else
+        @click="setEditableId(todo._id)"
+        class="ui icon button violet inverted"
+      >
         <i class="edit outline icon"></i>
       </div>
     </td>
     <td class="selectable center aligned one wide column">
-      <div @click="remove(todo._id)" class="ui icon button red inverted">
+      <div v-if="getEditableId === todo._id" class="ui icon button red">
+        <i class=" outline icon">X</i>
+      </div>
+      <div v-else @click="remove(todo._id)" class="ui icon button red inverted">
         <i class="trash alternate outline icon"></i>
       </div>
     </td>
@@ -26,12 +47,13 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "TodoListItem",
   props: ["todo"],
-  methods: mapActions(["isCompleted", "remove"])
+  computed: mapGetters(["getEditableId"]),
+  methods: mapActions(["isCompleted", "remove", "setEditableId"])
 };
 </script>
 
