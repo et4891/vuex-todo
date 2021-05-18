@@ -36,7 +36,11 @@
       </div>
     </td>
     <td class="selectable center aligned one wide column">
-      <div v-if="getEditableId === todo._id" class="ui icon button red">
+      <div
+        v-if="getEditableId === todo._id"
+        @click="setEditableId(null)"
+        class="ui icon button red"
+      >
         <i class=" outline icon">X</i>
       </div>
       <div v-else @click="remove(todo._id)" class="ui icon button red inverted">
