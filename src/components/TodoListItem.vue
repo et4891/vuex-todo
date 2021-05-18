@@ -14,7 +14,7 @@
         class="ui labeled icon input fluid"
         v-if="getEditableId === todo._id"
       >
-        <input type="text" :value="todo.item" />
+        <input type="text" :value="todo.item" @input="modifyItemInput" />
       </div>
       <label v-else :class="{ completed: todo.completed }">{{
         todo.item
@@ -24,6 +24,7 @@
       <div
         v-if="getEditableId === todo._id"
         class="ui icon button green inverted"
+        @click="modifyItem({ _id: todo._id, item: itemValue })"
       >
         <i class="save icon"></i>
       </div>
@@ -56,8 +57,16 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   name: "TodoListItem",
   props: ["todo"],
+  data: () => ({
+    itemValue: null
+  }),
   computed: mapGetters(["getEditableId"]),
-  methods: mapActions(["isCompleted", "remove", "setEditableId"])
+  methods: {
+    ...mapActions(["isCompleted", "remove", "setEditableId", "modifyItem"]),
+    modifyItemInput(e) {
+      this.itemValue = e.target.value || this.todo.item;
+    }
+  }
 };
 </script>
 
