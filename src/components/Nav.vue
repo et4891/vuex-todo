@@ -1,12 +1,11 @@
 <template>
   <nav>
     <div class="ui secondary pointing menu">
-      <a href="/" class="active item">
-        Vuex Todo
-      </a>
+      <router-link to="/" class="ui item active">Vuex Todo</router-link>
+
       <div class="right menu">
         <div class="horizontal">
-          <a href="/" class="ui item">List</a>
+          <router-link to="/" class="ui item">List</router-link>
         </div>
       </div>
     </div>
