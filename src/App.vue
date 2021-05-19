@@ -1,31 +1,18 @@
 <template>
   <div>
     <Nav />
-    <div class="container">
-      <TodoInput />
-      <TodoList />
-    </div>
+
+    <router-view />
   </div>
 </template>
 
 <script>
 import Nav from "./components/Nav";
-import TodoList from "./components/TodoList";
-import TodoInput from "@/components/TodoInput";
 
 export default {
   name: "App",
   components: {
-    Nav,
-    TodoInput,
-    TodoList
+    Nav
   }
 };
 </script>
-
-<style scoped>
-.container {
-  width: 90%;
-  margin: auto;
-}
-</style>
