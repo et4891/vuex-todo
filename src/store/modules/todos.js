@@ -32,9 +32,19 @@ const actions = {
     } catch (e) {
       console.log(e, "error in add item in actions");
     }
-    // call axios to add
-    // get the return values
-    // get the items in state, then either push into the array then commit to setTodos mutation
+  },
+  modifyItem: async ({ commit }, { _id, item }) => {
+    try {
+      const response = await api.modify(_id, item);
+      if (response.status !== 200) return;
+
+      // replace old todo lists to the new one
+      // set editable id to null so the input will not be shown
+      commit("setTodos", response.data.data);
+      commit("setEditableId", null);
+    } catch (e) {
+      console.log(e, "error in modify item in actions");
+    }
   },
   isCompleted: async (context, todo) => {
     todo.completed = !todo.completed;

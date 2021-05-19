@@ -12,7 +12,7 @@
     </a>
     <div class="ui left labeled button" tabindex="0">
       <a class="ui basic label">
-        0
+        {{ itemList.length }}
       </a>
       <div class="ui icon button yellow">
         <i class="trash alternate icon"></i>
@@ -26,7 +26,7 @@ import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "TodoInput",
-  computed: mapGetters(["getInputText"]),
+  computed: mapGetters(["getInputText", "itemList"]),
   methods: mapActions(["onInput", "addItem"])
 };
 </script>
