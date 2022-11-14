@@ -1,5 +1,5 @@
 import axios from "axios";
-const BASE_URL = "https://express-tutorial-api.herokuapp.com/api/todo";
+const BASE_URL = "https://express-tutorial-api-production.up.railway.app";
 // const BASE_URL = "http://localhost:3001/api/todo";
 
 export default {
